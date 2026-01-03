@@ -139,7 +139,7 @@ INTERNAL_API_BASE_URL: "http://your-company-api.internal:8080"
 {
   "mcpServers": {
     "internal-api-proxy": {
-      "url": "http://localhost:8080/sse"
+      "url": "http://192.168.1.103:8080/sse"
     }
   }
 }
