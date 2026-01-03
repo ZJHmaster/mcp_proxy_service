@@ -1,0 +1,38 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mcp-proxy-service
+  main:
+    web-application-type: reactive
+  ai:
+    mcp:
+      server:
+        # MCP Server 名称
+        name: internal-api-proxy
+        # MCP Server 版本
+        version: 1.0.0
+
+# 内部 API 配置
+internal:
+  api:
+    base-url: ${INTERNAL_API_BASE_URL:http://localhost:9000}
+    timeout: 30000
+    # 模拟模式（Demo 用）
+    mock-enabled: ${MOCK_ENABLED:true}
+
+# Actuator 健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.example.mcpproxy: DEBUG
+    org.springframework.ai.mcp: DEBUG
